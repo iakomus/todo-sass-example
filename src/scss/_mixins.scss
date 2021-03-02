@@ -1,0 +1,33 @@
+$breakpoint-small: 453px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 1000px;
+
+@mixin breakpoint-between($min, $max: false) {
+    @if $max {
+        @media (min-width: $min) and (max-width: #{$max - 1}) {
+            @content;
+        }
+    } @else {
+        @media (min-width: $min) {
+            @content;
+        }
+    }
+}
+
+@mixin small {
+    @include breakpoint-between($breakpoint-small, $breakpoint-medium) {
+        @content;
+    }
+}
+
+@mixin medium {
+    @include breakpoint-between($breakpoint-medium, $breakpoint-large) {
+        @content;
+    }
+}
+
+@mixin large {
+    @include breakpoint-between($breakpoint-large) {
+        @content;
+    }
+}

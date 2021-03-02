@@ -1,0 +1,40 @@
+@import 'variables';
+@import 'mixins';
+
+.todo {
+    &-list,
+    &-form {
+        max-width: 600px;
+        margin: auto;
+    }
+
+    &-list {
+        margin-bottom: $padding * 2;
+
+        // @include small {
+        //     background-color: blue;
+        // }
+
+        // @include medium {
+        //     background-color: red;
+        // }
+
+        // @include large {
+        //     background-color: orange;
+        // }
+    }
+
+    &-form {
+        display: flex;
+        flex-direction: row;
+
+        &__input {
+            flex-grow: 1;
+        }
+
+        &__input,
+        &__button {
+            padding: $padding $padding * 2;
+        }
+    }
+}
